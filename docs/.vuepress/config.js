@@ -2,7 +2,7 @@ module.exports = {
   title: "Jessie的个人技术博客",
   description: "办法总比问题多",
   theme: "reco",
-  base: './',
+  base: '/Jessie-blog/',
   locales: {
     "/": {
       lang: "zh-CN",
