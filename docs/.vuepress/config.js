@@ -25,30 +25,29 @@ module.exports = {
       },
     ],
     sidebar: [
+      // {
+      //   title: "欢迎学习",
+      //   path: "/",
+      //   collapsable: false, // 不折叠
+      //   children: [{ title: "学前必读", path: "/" }],
+      // },
       {
-        title: "欢迎学习",
-        path: "/",
-        collapsable: false, // 不折叠
-        children: [{ title: "学前必读", path: "/" }],
-      },
-      {
-        title: "基础学习",
-        path: "/javascript/ConditionalTypes",
-        collapsable: false, // 不折叠
-        children: [
-          { title: "条件类型", path: "/javascript/ConditionalTypes" },
-          { title: "泛型", path: "/javascript/Generics" },
-        ],
-      },
-      {
-        title: "算法学习",
-        path: "/leetcode/ConditionalTypes",
+        title: "博客搭建",
+        path: "/construction/Blog1",
         collapsable: false, // 不折叠
         children: [
-          { title: "条件类型", path: "/leetcode/ConditionalTypes" },
-          { title: "泛型", path: "/leetcode/Generics" },
+          { title: "博客 01", path: "/construction/Blog1" },
         ],
       },
+      // {
+      //   title: "算法学习",
+      //   path: "/leetcode/Array",
+      //   collapsable: false, // 不折叠
+      //   children: [
+      //     { title: "数组", path: "/leetcode/Array" },
+      //     { title: "链表", path: "/leetcode/Generics" },
+      //   ],
+      // },
     ],
   },
 };
