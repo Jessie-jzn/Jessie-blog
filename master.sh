@@ -12,7 +12,7 @@ git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@study.github.com:Jessie-jzn/Jessie-blog.git master
+git push -f git@github.com:Jessie-jzn/Jessie-blog.git master
 
 cd -
 
