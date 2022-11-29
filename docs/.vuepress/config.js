@@ -32,22 +32,22 @@ module.exports = {
       //   children: [{ title: "学前必读", path: "/" }],
       // },
       {
-        title: "博客搭建",
+        title: "Create Blog",
         path: "/construction/Blog1",
         collapsable: false, // 不折叠
         children: [
-          { title: "博客 01", path: "/construction/Blog1" },
+          { title: "Blog 01", path: "/construction/Blog1" },
         ],
       },
-      // {
-      //   title: "算法学习",
-      //   path: "/leetcode/Array",
-      //   collapsable: false, // 不折叠
-      //   children: [
-      //     { title: "数组", path: "/leetcode/Array" },
-      //     { title: "链表", path: "/leetcode/Generics" },
-      //   ],
-      // },
+      {
+        title: "Resume",
+        path: "/resume",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "Chinese Resume", path: "/resume/chinese" },
+          { title: "English Resume", path: "/resume/english" },
+        ],
+      },
     ],
   },
 };
