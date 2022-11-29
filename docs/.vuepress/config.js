@@ -39,15 +39,7 @@ module.exports = {
           { title: "Blog 01", path: "/construction/Blog1" },
         ],
       },
-      {
-        title: "Resume",
-        path: "/resume",
-        collapsable: false, // 不折叠
-        children: [
-          { title: "Chinese Resume", path: "/resume/chinese" },
-          { title: "English Resume", path: "/resume/english" },
-        ],
-      },
+
     ],
   },
 };
