@@ -32,13 +32,45 @@ module.exports = {
       //   children: [{ title: "学前必读", path: "/" }],
       // },
       {
-        title: "Create Blog",
+        title: "创建博客",
         path: "/construction/Blog1",
         collapsable: false, // 不折叠
         children: [
           { title: "Blog 01", path: "/construction/Blog1" },
         ],
       },
+      {
+        title: "LeetCode",
+        path: "/leetcode/Blog1",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "Blog 01", path: "/construction/Blog1" },
+        ],
+      },
+      {
+        title: "代码题",
+        path: "/javascript/Debounce",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "函数防抖", path: "/javascript/Debounce" },
+          { title: "函数节流", path: "/javascript/Throttle" },
+        ],
+      },
+      // {
+      //   title: "面经",
+      //   path: "/interview/Toutiao",
+      //   collapsable: false, // 不折叠
+      //   children: [
+      //     { title: "头条商业化", path: "/interview/Toutiao" },
+      //     { title: "瞬联科技", path: "/interview/Toutiao" },
+      //     { title: "阿里本地生活", path: "/interview/Toutiao" },
+      //     { title: "WIFI万能钥匙", path: "/interview/Toutiao" },
+      //     { title: "小红书", path: "/interview/Toutiao" },
+      //     { title: "众安", path: "/interview/Toutiao" },
+      //     { title: "传音控股", path: "/interview/Toutiao" },
+      //     { title: "Convertlab", path: "/interview/Toutiao" },
+      //   ],
+      // },
 
     ],
   },

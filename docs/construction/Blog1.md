@@ -6,7 +6,7 @@ date: "2022-06-10"
 
 一直都是使用 CSDN 写一些博文，最近突发奇想想试用下免费的 Github Pages 搭建一下博客，跟上大家的脚步 👣，VuePress 官网文档写得还算是挺全面的，但是我在进行部署的时候踩了不少坑，记录下来方便大家上手，减少踩坑。
 
-# 快速搭建 VuePress
+## 快速搭建 VuePress
 
 > 一个 VuePress 网站是一个由  [Vue (opens new window)](http://vuejs.org/)、[Vue Router (opens new window)](https://github.com/vuejs/vue-router)和  [webpack (opens new window)](http://webpack.js.org/)驱动的单页应用
 
@@ -14,32 +14,32 @@ date: "2022-06-10"
 
 1. 创建并进入一个新目录
 
-```
+```js
 mkdir blog
 cd blog
 ```
 
 2. 使用`npm`进行初始化
 
-```
+```js
 npm init
 ```
 
 3. 将`VuePress`安装为本地依赖（我使用的是 v1.x 版本）
 
-```
+```js
 npm install -D vuepress
 ```
 
 4. 新建一个`docs`新目录，并且创建一个新文档（因为 VuePress 使用 docs 作为根目录，所以这个 README.md 相当于主页）
 
-```
+```js
 mkdir docs && echo '# Hello VuePress' > docs/README.md
 ```
 
 5. 在  `package.json`  中添加 script
 
-```
+```js
 {
   "scripts": {
     "docs:dev": "vuepress dev docs",
@@ -50,14 +50,14 @@ mkdir docs && echo '# Hello VuePress' > docs/README.md
 
 6. 在`docs`目录下创建一个  `.vuepress`  目录，并创建一个新的 config.js 文件
 
-```
+```js
 cd docs
 mkdir .vuepress
 ```
 
 此时你的目录结构为
 
-```
+```js
 ├─ docs
 │  ├─ README.md
 │  └─ .vuepress
@@ -67,7 +67,7 @@ mkdir .vuepress
 
 7. 在本地启动服务器
 
-```
+```js
 npm run docs:dev
 ```
 
@@ -81,11 +81,11 @@ npm run docs:dev
 
 ### 基础信息
 
-```
+```js
 module.exports = {
-  title: 'Jessie的个人技术博客',
-  description: '办法总比问题多',
-}
+  title: "Jessie的个人技术博客",
+  description: "办法总比问题多",
+};
 ```
 
 ### 配置中文
@@ -140,7 +140,7 @@ module.exports = {
 
 ![WX20220611-211257.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66f2d3e7645d4ee69ba875a3deb28f60~tplv-k3u1fbpfcp-watermark.image?)
 
-# 部署到 GitHub
+## 部署到 GitHub
 
 1. 在自己的 github 上新建一个项目，我这边是叫 Jessie-blog
    ![4d74fe1b04374112b72dae8de8039f7d~tplv-k3u1fbpfcp-watermark.image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/444ec42abd9249b6b0fc610d1c0ba010~tplv-k3u1fbpfcp-watermark.image?)
@@ -215,11 +215,11 @@ cd -
 
 ![1654953825918.jpg](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d0a8e1c4c824af9bc40e166798956e0~tplv-k3u1fbpfcp-watermark.image?)
 
-最后生成的地址就是https://jessie-jzn.github.io/Jessie-blog/
+最后生成的地址就是<https://jessie-jzn.github.io/Jessie-blog/>
 
 基础使用 VuePress + GitHub Pages 搭建博客也就完成了。
 
-# 踩坑
+## 踩坑
 
 如果遇到部署上 github 后，vuepress 样式丢失的情况，请检查
 
@@ -228,4 +228,4 @@ cd -
 
 ---
 
-github：https://github.com/Jessie-jzn/Jessie-blog
+github：<https://github.com/Jessie-jzn/Jessie-blog>
