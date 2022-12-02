@@ -32,7 +32,7 @@ module.exports = {
       //   children: [{ title: "学前必读", path: "/" }],
       // },
       {
-        title: "创建博客",
+        title: "博客搭建",
         path: "/construction/Blog1",
         collapsable: false, // 不折叠
         children: [
@@ -40,20 +40,28 @@ module.exports = {
         ],
       },
       {
-        title: "LeetCode",
-        path: "/leetcode/Blog1",
+        title: "脚手架搭建",
+        path: "/template/React",
         collapsable: false, // 不折叠
         children: [
-          { title: "Blog 01", path: "/construction/Blog1" },
+          { title: "React+TypeScript+Webpack5", path: "/template/React" },
+        ],
+      },
+      {
+        title: "js基础",
+        path: "/javascript/Closure",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "闭包", path: "/javascript/Closure" },
         ],
       },
       {
         title: "代码题",
-        path: "/javascript/Debounce",
+        path: "/code/Debounce",
         collapsable: false, // 不折叠
         children: [
-          { title: "函数防抖", path: "/javascript/Debounce" },
-          { title: "函数节流", path: "/javascript/Throttle" },
+          { title: "函数防抖", path: "/code/Debounce" },
+          { title: "函数节流", path: "/code/Throttle" },
         ],
       },
       // {
