@@ -53,6 +53,8 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "闭包", path: "/javascript/Closure" },
+          { title: "原型链", path: "/javascript/Prototype" },
+
         ],
       },
       {
@@ -62,6 +64,7 @@ module.exports = {
         children: [
           { title: "函数防抖", path: "/code/Debounce" },
           { title: "函数节流", path: "/code/Throttle" },
+          { title: "数组去重", path: "/code/Repeat" },
         ],
       },
       // {
