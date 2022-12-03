@@ -54,7 +54,21 @@ module.exports = {
         children: [
           { title: "闭包", path: "/javascript/Closure" },
           { title: "原型链", path: "/javascript/Prototype" },
+          // { title: "事件循环机制", path: "/javascript/cycle" },
+          // { title: "事件冒泡和事件捕获", path: "/javascript/Prototype" },
 
+        ],
+      },
+      {
+        title: "浏览器基础",
+        path: "/javascript/browser",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "从输入URL到页面展示发生了什么", path: "/browser/Navigation" },
+          // { title: "渲染过程", path: "/browser/Navigation" },
+          // { title: "Event Loop 机制", path: "/browser/Navigation" },
+          // { title: "垃圾回收机制", path: "/browser/Navigation" },
+          // { title: "localstorage与cookie ", path: "/browser/Navigation" },
         ],
       },
       {
@@ -65,6 +79,8 @@ module.exports = {
           { title: "函数防抖", path: "/code/Debounce" },
           { title: "函数节流", path: "/code/Throttle" },
           { title: "数组去重", path: "/code/Repeat" },
+          // { title: "柯里化", path: "/code/Repeat" },
+          // { title: "Promise实现", path: "/code/Repeat" },
         ],
       },
       // {
