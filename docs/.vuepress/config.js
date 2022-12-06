@@ -48,6 +48,16 @@ module.exports = {
         ],
       },
       {
+        title: "ECMAScript",
+        path: "/ECMAScript/Set",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "Set类型", path: "/ECMAScript/Set" },
+          { title: "WeakSet类型", path: "/ECMAScript/WeakSet" },
+          { title: "Map类型", path: "/ECMAScript/Map" },
+        ],
+      },
+      {
         title: "js基础",
         path: "/javascript/Closure",
         collapsable: false, // 不折叠
@@ -61,7 +71,7 @@ module.exports = {
       },
       {
         title: "浏览器基础",
-        path: "/javascript/browser",
+        path: "/javascript/browser/Navigation",
         collapsable: false, // 不折叠
         children: [
           { title: "导航流程：从输入URL到页面展示", path: "/browser/Navigation" },
@@ -73,7 +83,7 @@ module.exports = {
       },
       {
         title: "网络基础",
-        path: "/network/http",
+        path: "/network/Http",
         collapsable: false, // 不折叠
         children: [
           { title: "Cookie缓存比较", path: "/network/Http" },
