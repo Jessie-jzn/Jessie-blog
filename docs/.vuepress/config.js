@@ -64,11 +64,19 @@ module.exports = {
         path: "/javascript/browser",
         collapsable: false, // 不折叠
         children: [
-          { title: "从输入URL到页面展示发生了什么", path: "/browser/Navigation" },
-          { title: "渲染过程", path: "/browser/Render" },
+          { title: "导航流程：从输入URL到页面展示", path: "/browser/Navigation" },
+          { title: "渲染流程：如何渲染资源到显示屏", path: "/browser/Render" },
           // { title: "Event Loop 机制", path: "/browser/Navigation" },
           // { title: "垃圾回收机制", path: "/browser/Navigation" },
           // { title: "localstorage与cookie ", path: "/browser/Navigation" },
+        ],
+      },
+      {
+        title: "网络基础",
+        path: "/network/http",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "Cookie缓存比较", path: "/network/Http" },
         ],
       },
       {

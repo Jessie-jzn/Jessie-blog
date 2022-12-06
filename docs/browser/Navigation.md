@@ -1,5 +1,5 @@
 ---
-title: 从输入URL到页面展示发生了什么
+title: 导航流程：从输入URL到页面展示
 author: Jessie
 date: "2022-07-03"
 ---
@@ -11,11 +11,12 @@ date: "2022-07-03"
 - 当登录过一个网站后，下次访问该网站是已登录状态，怎么做到的？
 - TCP建立连接过程，为什么握手需要发生三次？
 - UDP与TCP相比，优点和缺点是什么？
-- TCP连接会存在TCP队列，那加载大量图片的时候怎么解决卡顿？
 
-<!-- # HTTP请求流程【9个阶段】 -->
+## 总流程【9个阶段】
 
-## 构建请求
+[![](https://mermaid.ink/img/pako:eNpVkd1KAkEUx19lmasJ9AX2IsjPDQqkvGu7GNwxF1x32XYvQgQL0-zLyigjW4kUAlmsqyBFn-bM6ls0jgvVuTqc3w_O4X_KKGdqFMnowCZWQdraUUsSr4095tVg_D0ffbHPk30pGl2PYdYbsOY0mLTB76ytvNiSSHEMjTr0G7oF3Q94qcLdZTAcQesttOLCSuDAb8L0NBvPLDo9OHsMaULQJObrguEFp_OZx64HIU0KmsLQul1Uj5VsNrO6KcQpgdOYda_g_BWe3qFfC27q_5y0cJRfZz67h2cvGLeZ1w0dRTibmD34MKn-PQJFkEFtg-gaT6m8tFXkFKhBVSTzVqN54hYdFamlCleJ65i7R6Uckh3bpRHkWhpxaEInPF8DyXlSPORTqumOaW-vkhcPqPwAE5WmWA?type=png)](https://mermaid.live/edit#pako:eNpVkd1KAkEUx19lmasJ9AX2IsjPDQqkvGu7GNwxF1x32XYvQgQL0-zLyigjW4kUAlmsqyBFn-bM6ls0jgvVuTqc3w_O4X_KKGdqFMnowCZWQdraUUsSr4095tVg_D0ffbHPk30pGl2PYdYbsOY0mLTB76ytvNiSSHEMjTr0G7oF3Q94qcLdZTAcQesttOLCSuDAb8L0NBvPLDo9OHsMaULQJObrguEFp_OZx64HIU0KmsLQul1Uj5VsNrO6KcQpgdOYda_g_BWe3qFfC27q_5y0cJRfZz67h2cvGLeZ1w0dRTibmD34MKn-PQJFkEFtg-gaT6m8tFXkFKhBVSTzVqN54hYdFamlCleJ65i7R6Uckh3bpRHkWhpxaEInPF8DyXlSPORTqumOaW-vkhcPqPwAE5WmWA)
+
+## 1.构建请求
 
 浏览器构建请求行信息，进行进程间通信（IPC）将URL请求发送给网络进程
 
@@ -23,7 +24,7 @@ date: "2022-07-03"
 GET /index.html HTTP1.1
 ```
 
-## 查找缓存
+## 2.查找缓存
 
 如果存有副本，拦截请求，返回该资源的副本，直接结束请求。
 
@@ -34,7 +35,7 @@ GET /index.html HTTP1.1
 
     >浏览器缓存是一种在本地保存资源副本，以供下次请求是直接使用的技术
 
-## 准备ip地址和端口
+## 3.准备ip地址和端口
 
 >HTTP与TCP的关系：浏览器使用HTTP协议作为应用层协议，用来封装请求的文本信息；并使用TCP/IP作传输层协议将它发到网络上，所以在HTTP工作之前，浏览器需要通过TCP与服务器建立连接。
 **HTTP的内容是通过TCP的传输数据阶段来实现的。**
@@ -45,22 +46,17 @@ GET /index.html HTTP1.1
     >**IP地址和端口怎么获取？【[DNS 原理入门](https://link.juejin.cn/?target=http%3A%2F%2Fwww.ruanyifeng.com%2Fblog%2F2016%2F06%2Fdns.html)】**
     >用户只输入了URL地址，也就是说目前我们只有URL地址，可以把URL域名和IP地址作一一映射关系，这套域名映射为IP的系统就叫做“域名系统”，简称DNS。通常情况下，URL没有特别指明端口号，默认80端口
 
-## 等待TCP队列【不一定发生】
+## 4.等待TCP队列【不一定发生】
 
 > 不同浏览器有不同规定，Chrome浏览器有个机制，同一个域名同时最多只能建立6个TCP连接，如果在同一个域名同时有10个请求发生，那么其中4个请求会进入排队等待状态，直至进行中的请求完成
 
-## 建立TCP连接【[TCP/UDP协议详解](https://link.juejin.cn/?target=TCP%2FUDP%25E5%258D%258F%25E8%25AE%25AE%25E8%25AF%25A6%25E8%25A7%25A3)】
+## 5.建立TCP连接【[TCP/UDP协议详解](https://link.juejin.cn/?target=TCP%2FUDP%25E5%258D%258F%25E8%25AE%25AE%25E8%25AF%25A6%25E8%25A7%25A3)】
 
 >一个完整的TCP连接生命周期包括“建立连接”“传输数据”“断开连接”三个阶段
 
 ### TCP的三次握手
 
-```mermaid
-sequenceDiagram
-客户端->>服务端: 发送带有SYN标志的数据包
-服务端-->>客户端: 发送带有SYN/ACK标志的数据包
-客户端-)服务端: 发送带有ACK标志的数据包
-```
+[![](https://mermaid.ink/img/pako:eNqrVkrOT0lVslIqTi0sTc1LTnXJTEwvSsyNyVMAgqfrFj3r2P589XpdO7tnc3qfdi0Esq0UnvZPfNnQ-HTHsmdzOoMj_Z4taH-6f_rzWS3Ppm541rvuaU8rRDdchy5QO9woDO36js7euIxAOEATh_1YNSvpKOWmFuUmZqYAfVYNMipGqSQjNTc1RskKyExJTUsszSmJUYrJqwUqTSwtyQ-uzEtWsiopKk3VUSotSEksgQWEklVaYk4xUDQ1JbMkv8gXElrgQKsFACNqm2A?type=png)](https://mermaid.live/edit#pako:eNqrVkrOT0lVslIqTi0sTc1LTnXJTEwvSsyNyVMAgqfrFj3r2P589XpdO7tnc3qfdi0Esq0UnvZPfNnQ-HTHsmdzOoMj_Z4taH-6f_rzWS3Ppm541rvuaU8rRDdchy5QO9woDO36js7euIxAOEATh_1YNSvpKOWmFuUmZqYAfVYNMipGqSQjNTc1RskKyExJTUsszSmJUYrJqwUqTSwtyQ-uzEtWsiopKk3VUSotSEksgQWEklVaYk4xUDQ1JbMkv8gXElrgQKsFACNqm2A)
 
 1. 客户端–发送带有SYN标志的数据包–一次握手–服务端
 2. 服务端–发送带有SYN/ACK标志的数据包–二次握手–客户端
@@ -79,14 +75,14 @@ sequenceDiagram
 
 已经完成三次握手，建立起连接的就会放在全连接队列中，如果队列满了就有可能会出现丢包现象
 
-## 发送HTTP请求
+## 6.发送HTTP请求
 
 - 请求行：浏览器告诉服务器需要做什么，比如GET方法，浏览器需要拿资源，POS方法，浏览器准备好数据，通过请求体给服务器
 - 请求头：把浏览器的基础信息告诉服务器，比如所使用的操作系统、内核信息、域名信息、cookie
 
-## 服务器处理HTTP请求进程
+## 7.服务器处理HTTP请求进程
 
-## 服务器返回结果数据
+## 8.服务器返回结果数据
 
 - 响应行：HTTP协议版本 状态码，通过常见的响应码就可以知道处理的结果
 - 响应头：包含服务器自身的一些信息，比如生成数据的时间，返回数据的类型（HTML、流媒体、JSON、XHTML）以及服务器在客户端保存的cookie等信息
@@ -145,7 +141,7 @@ Cache-Control：http缓存，设置缓存资源的时间
 505   （HTTP 版本不受支持） 服务器不支持请求中所用的 HTTP 协议版本。
 ```
 
-## 断开TCP连接
+## 9.断开TCP连接
 
 执行四次挥手。
 
@@ -153,13 +149,7 @@ Cache-Control：http缓存，设置缓存资源的时间
 
 ### TCP的四次挥手
 
-```mermaid
-sequenceDiagram
-客户端->>服务端: 发送一个FIN，用来关闭客户端到服务器的数据传送
-服务端-->>客户端: 收到这个FIN，它发回一个ACK，确认序号为收到的序号加1
-服务端-->>客户端: 关闭与客户端的连接，发送一个FIN给客户端
-客户端-)服务端: 发回ACK报文确认，并将确认序号设置为收到序号加1，此时客户端处于TIME_WAIT状态
-```
+[![](https://mermaid.ink/img/pako:eNp1kk9LAkEYxr_KMrdAD133IEh_QMIuCV0WYnHHEtzdWncPIYKSlSypBJbYH9FQkMJJCNbNLL_Mzux66is0NjTqodvw8v6e55n3fXMgqSsQiCALTyyoJeFmWj40ZFXSMHoi5ZH_8hqORMhDBdsd-hYFXLueFYqeW_Dc5-3Y7vfkyq_3yWMPn7_NGgMO4fKQQbjZ9-9K5GZIKsibtCkraVwuTLU5Igqk7lAumDa5NkZn1BDft5hhdGNnbthBAericQ3XRp47ZhQ1YRVst9f_t2AxPbfKaxQMpi1S7c3tVj_nfzR52_JA1lbnQePRYMTukdtLlm0u9e7g4cVy1AB9-Z-IB16kpd1k0CUNZzG9bskbVxOx-NbBfjSW8G2HFIogBFRoqHJaoevKSZogSMA8giqUgEifCkzJVsaUgKTlaatsmfreqZYEomlYMASsY0U2_7YLxJScydIqVNKmbsTZCfxeQv4HjSw0gQ?type=png)](https://mermaid.live/edit#pako:eNp1kk9LAkEYxr_KMrdAD133IEh_QMIuCV0WYnHHEtzdWncPIYKSlSypBJbYH9FQkMJJCNbNLL_Mzux66is0NjTqodvw8v6e55n3fXMgqSsQiCALTyyoJeFmWj40ZFXSMHoi5ZH_8hqORMhDBdsd-hYFXLueFYqeW_Dc5-3Y7vfkyq_3yWMPn7_NGgMO4fKQQbjZ9-9K5GZIKsibtCkraVwuTLU5Igqk7lAumDa5NkZn1BDft5hhdGNnbthBAericQ3XRp47ZhQ1YRVst9f_t2AxPbfKaxQMpi1S7c3tVj_nfzR52_JA1lbnQePRYMTukdtLlm0u9e7g4cVy1AB9-Z-IB16kpd1k0CUNZzG9bskbVxOx-NbBfjSW8G2HFIogBFRoqHJaoevKSZogSMA8giqUgEifCkzJVsaUgKTlaatsmfreqZYEomlYMASsY0U2_7YLxJScydIqVNKmbsTZCfxeQv4HjSw0gQ)
   
 1. 客户端-发送一个FIN，用来关闭客户端到服务器的数据传送
 2. 服务器-收到这个FIN，它发回一个ACK，确认序号为收到的序号加1 。和SYN一样，一个FIN将占用一个序号
@@ -171,7 +161,7 @@ sequenceDiagram
 1. 要确保服务器是否已经收到了我们的ACK报文，如果没有收到的话，服务器会重新发FIN报文给客户端，客户端再次收到报文后就知道之前的ACK报文丢失，再次发送ACK报文
 2. 至少是一个报文的来回时间，如果过了这个计时没有再次收到FIN报文，则表明对方成功收到
 
-## 面试答案
+## 10.面试答案
 
 ### 为什么很多站点第二次打开速度很快？
 
@@ -185,13 +175,15 @@ sequenceDiagram
 
 ### 当登录过一个网站之后，下次再访问该站点，就已经处于登录状态了，这是怎么做到的呢？
 
-```mermaid
+```javascript
 sequenceDiagram
 服务器->>客户端: 发送带有 Set-Cookie 的字段的响应头
 客户端-->>客户端: 将Cookie字段的内容保存到本地
 客户端-->>服务器: 发送加入Cookie 值的请求头
 服务器-)服务器:检查对比服务器上的Cookie记录，最后得到该用户的状态信息
 ```
+
+[![](https://mermaid.ink/img/pako:eNpdkc9OwkAQh1-l2ZsJvEAPXPTqieteNu2ijbTVsj0YQlIMEGzEPxGDkhpFrSFR2pqogEF5GWaLJ1_BBbQk3CaT_X77zUwRKaZKkYwKdM-mhkI3NLJlER0b3GuA24GrbjqTgeCO1_vxUyhLcHL27ZRh8Mi9QylLWXrdNHc0KsXtCvRaPHibFecN-GjCwys2EjK9EhPVFuASqlUhGE7G19C7hHrEvWfwopWAxCnxcG-h6v8pgDMSOdOwz18O5p8vR1hbkvze4Tc-hEMeNpPuZOAKdJEzDSL4vPgZHXHPgdNj-GoJnWnox83uzKRdid137pQn4w4vhyiFdGrpRFPFDovYkCSM2DbVKUayKFWaI3aeYYSNknhKbGZm9w0FycyyaQrZuyph_ytHco7kC6JLVY2Z1ubiLvPzlH4BPl_mGA?type=png)](https://mermaid.live/edit#pako:eNpdkc9OwkAQh1-l2ZsJvEAPXPTqieteNu2ijbTVsj0YQlIMEGzEPxGDkhpFrSFR2pqogEF5GWaLJ1_BBbQk3CaT_X77zUwRKaZKkYwKdM-mhkI3NLJlER0b3GuA24GrbjqTgeCO1_vxUyhLcHL27ZRh8Mi9QylLWXrdNHc0KsXtCvRaPHibFecN-GjCwys2EjK9EhPVFuASqlUhGE7G19C7hHrEvWfwopWAxCnxcG-h6v8pgDMSOdOwz18O5p8vR1hbkvze4Tc-hEMeNpPuZOAKdJEzDSL4vPgZHXHPgdNj-GoJnWnox83uzKRdid137pQn4w4vhyiFdGrpRFPFDovYkCSM2DbVKUayKFWaI3aeYYSNknhKbGZm9w0FycyyaQrZuyph_ytHco7kC6JLVY2Z1ubiLvPzlH4BPl_mGA)
 
 1. 如果服务器端发送的响应头内有 Set-Cookie 的字段，那么浏览器就会将该字段的内容保持到本地。
 2. 当下次客户端再往该服务器发送请求时，客户端会自动在请求头中加入Cookie 值后再发送出去。
@@ -214,3 +206,7 @@ sequenceDiagram
 
 - 优点：传输数据快
 - 缺点：数据包在传输过程中容易丢失；大文件被拆分成小的数据包经过不同的路由传输到达接收端，UDP协议不知道如何组装
+
+---
+🔗参考链接：
+浏览器工作原理与实践

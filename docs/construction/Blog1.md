@@ -6,6 +6,10 @@ date: "2022-06-10"
 
 一直都是使用 CSDN 写一些博文，最近突发奇想想试用下免费的 Github Pages 搭建一下博客，跟上大家的脚步 👣，VuePress 官网文档写得还算是挺全面的，但是我在进行部署的时候踩了不少坑，记录下来方便大家上手，减少踩坑。
 
+源码：<https://github.com/Jessie-jzn/Jessie-blog>
+
+博客地址：<https://jessie-jzn.github.io/Jessie-blog/>
+
 ## 快速搭建 VuePress
 
 > 一个 VuePress 网站是一个由  [Vue (opens new window)](http://vuejs.org/)、[Vue Router (opens new window)](https://github.com/vuejs/vue-router)和  [webpack (opens new window)](http://webpack.js.org/)驱动的单页应用
@@ -221,11 +225,13 @@ cd -
 
 ## 踩坑
 
-如果遇到部署上 github 后，vuepress 样式丢失的情况，请检查
+### 如果遇到部署上 github 后，vuepress 样式丢失的情况，请检查
 
 - 是否是路径问题，`.vuepress/config.js`中的  `base`  路径是否正常
 - github 上的资源部署路径是否正确，有没有选对分支，有没有选对资源文件夹
 
----
+### 浏览器展示Mermaid图不生效
 
-github：<https://github.com/Jessie-jzn/Jessie-blog>
+在github上展示得出来，但是在deploy后的浏览器页面却不生效了，目前没有找到解决办法。
+
+备用方案是在Online FlowChart & Diagrams Editor - Mermaid Live Editor(<https://mermaid.live/edit>)生成Mermaid图，然后复制图片展示
