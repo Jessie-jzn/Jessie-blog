@@ -1,5 +1,5 @@
 ---
-title: 导航流程：从输入URL到页面展示
+title: 浏览器的导航流程：从输入URL到页面展示
 author: Jessie
 date: "2022-07-03"
 ---

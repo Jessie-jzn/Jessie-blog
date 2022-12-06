@@ -90,6 +90,15 @@ module.exports = {
           // { title: "柯里化", path: "/code/Repeat" },
           // { title: "Promise实现", path: "/code/Repeat" },
         ],
+      },  
+      {
+        title: "其他",
+        path: "/others/VueBug",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "Vue常见错误解决", path: "/others/VueBug" },
+          { title: "React常见错误解决", path: "/others/ReactBug" },
+        ],
       },
       // {
       //   title: "面经",
