@@ -125,8 +125,6 @@ Module not found: Error: Can't resolve 'antd/es/descriptions' in '/Users/chenjia
 在项目中使用了antd里面的Descriptions描述列表组件，发现报了这个错误，根本原因就是使用的antd版本里面没有这个组件，项目中引用的antd版本是3.16.0，而我看的文档版本已经到了3.24.0了
 
 **解决：** 将antd 版本更新到最新或者文档里的版本
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191102153652639.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3puNzQwMzk1ODU4,size_16,color_FFFFFF,t_70)
 ----------
 
 **Uncaught TypeError: Cannot convert undefined or null to object**
