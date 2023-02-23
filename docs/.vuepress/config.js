@@ -2,13 +2,18 @@ module.exports = {
   title: "Jessie的个人技术博客",
   description: "办法总比问题多",
   theme: "reco",
-  base: '/Jessie-blog/',
+  // theme:{
+  //   layout: 'CustomLayout',
+  // },
+  base: "/Jessie-blog/",
   locales: {
     "/": {
       lang: "zh-CN",
     },
   },
   themeConfig: {
+    date_format: "yyyy-MM-dd HH:mm:ss",
+    lastUpdated: "Last Updated",
     subSidebar: "auto",
     nav: [
       { text: "首页", link: "/" },
@@ -35,9 +40,7 @@ module.exports = {
         title: "博客搭建",
         path: "/construction/Blog1",
         collapsable: false, // 不折叠
-        children: [
-          { title: "Blog 01", path: "/construction/Blog1" },
-        ],
+        children: [{ title: "Blog 01", path: "/construction/Blog1" }],
       },
       {
         title: "脚手架搭建",
@@ -58,7 +61,7 @@ module.exports = {
         ],
       },
       {
-        title: "js基础",
+        title: "JS基础",
         path: "/javascript/Closure",
         collapsable: false, // 不折叠
         children: [
@@ -66,7 +69,6 @@ module.exports = {
           { title: "原型链", path: "/javascript/Prototype" },
           // { title: "事件循环机制", path: "/javascript/cycle" },
           // { title: "事件冒泡和事件捕获", path: "/javascript/Prototype" },
-
         ],
       },
       {
@@ -74,7 +76,10 @@ module.exports = {
         path: "/javascript/browser/Navigation",
         collapsable: false, // 不折叠
         children: [
-          { title: "导航流程：从输入URL到页面展示", path: "/browser/Navigation" },
+          {
+            title: "导航流程：从输入URL到页面展示",
+            path: "/browser/Navigation",
+          },
           { title: "渲染流程：如何渲染资源到显示屏", path: "/browser/Render" },
           // { title: "Event Loop 机制", path: "/browser/Navigation" },
           // { title: "垃圾回收机制", path: "/browser/Navigation" },
@@ -83,10 +88,27 @@ module.exports = {
       },
       {
         title: "网络基础",
-        path: "/network/Http",
+        path: "/network/CachingComparison",
         collapsable: false, // 不折叠
         children: [
-          { title: "Cookie缓存比较", path: "/network/Http" },
+          { title: "Cookie缓存比较", path: "/network/CachingComparison" },
+        ],
+      },
+      {
+        title: "算法",
+        path: "/algorithm/array",
+        collapsable: false, // 不折叠
+        children: [
+          {
+            title: "数组",
+            path: "/algorithm/Array/BinarySearch",
+            children: [
+              {
+                title: "二分查找",
+                path: "/algorithm/Array/BinarySearch",
+              },
+            ],
+          },
         ],
       },
       {
@@ -100,7 +122,7 @@ module.exports = {
           // { title: "柯里化", path: "/code/Repeat" },
           // { title: "Promise实现", path: "/code/Repeat" },
         ],
-      },  
+      },
       {
         title: "其他",
         path: "/others/VueBug",
@@ -125,7 +147,6 @@ module.exports = {
       //     { title: "Convertlab", path: "/interview/Toutiao" },
       //   ],
       // },
-
     ],
   },
 };

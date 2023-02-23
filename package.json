@@ -12,7 +12,10 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "vuepress": "^1.9.7",
-    "vuepress-theme-reco": "^1.6.13"
+    "vuepress": "^1.9.8",
+    "vuepress-theme-reco": "^1.6.16"
+  },
+  "dependencies": {
+    "moment": "^2.29.4"
   }
 }
