@@ -96,7 +96,7 @@ module.exports = {
       },
       {
         title: "算法",
-        path: "/algorithm/array",
+        path: "/algorithm/Array/BinarySearch",
         collapsable: false, // 不折叠
         children: [
           {
@@ -106,6 +106,16 @@ module.exports = {
               {
                 title: "二分查找",
                 path: "/algorithm/Array/BinarySearch",
+              },
+            ],
+          },
+          {
+            title: "链表",
+            path: "/algorithm/Link/BaseLink",
+            children: [
+              {
+                title: "基础知识",
+                path: "/algorithm/Link/BaseLink",
               },
             ],
           },
