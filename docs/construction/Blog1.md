@@ -235,3 +235,25 @@ cd -
 在github上展示得出来，但是在deploy后的浏览器页面却不生效了，目前没有找到解决办法。
 
 备用方案是在Online FlowChart & Diagrams Editor - Mermaid Live Editor(<https://mermaid.live/edit>)生成Mermaid图，然后复制图片展示
+
+### 使用deploy脚本提交代码时报错
+
+*报错内容：*
+error: src refspec master does not match any
+error: failed to push some refs to 'github.com:Jessie-jzn/Jessie-blog.git'
+
+*报错原因：*
+这个错误通常是因为正在尝试推送到一个不存在的分支，或者本地分支与远程分支不匹配导致的。
+实际上是因为 Github/Git 没有默认的“master”分支。“master”已更改为“main”分支
+
+*解决方案：*
+
+```javascript
+git push -f git@github.com:Jessie-jzn/Jessie-blog.git master:blog-pages
+```
+
+改成
+
+```javascript
+git push -f git@github.com:Jessie-jzn/Jessie-blog.git main:blog-pages
+```
