@@ -1,3 +1,4 @@
+const markdownHeaderPlugin = require('./plugins/markdown-header-plugin');
 module.exports = {
   title: "Jessie的个人技术博客",
   description: "办法总比问题多",
@@ -13,7 +14,7 @@ module.exports = {
   },
   themeConfig: {
     date_format: "yyyy-MM-dd HH:mm:ss",
-    lastUpdated: "Last Updated",
+    lastUpdated: "上次更新",
     subSidebar: "auto",
     nav: [
       { text: "首页", link: "/" },
@@ -40,7 +41,8 @@ module.exports = {
         title: "博客搭建",
         path: "/construction/Blog1",
         collapsable: false, // 不折叠
-        children: [{ title: "Blog 01", path: "/construction/Blog1" }],
+        children: [{ title: "Blog 01", path: "/construction/Blog1" },
+        ],
       },
       {
         title: "脚手架搭建",
@@ -134,12 +136,31 @@ module.exports = {
         ],
       },
       {
+        title: "React",
+        path: "/react/ReactFiber",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "React Fiber", path: "/react/ReactFiber" },
+
+        ],
+      },
+      {
+        title: "Next",
+        path: "/next/base",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "基础", path: "/next/base" },
+
+        ],
+      },
+      {
         title: "其他",
         path: "/others/VueBug",
         collapsable: false, // 不折叠
         children: [
           { title: "Vue常见错误解决", path: "/others/VueBug" },
           { title: "React常见错误解决", path: "/others/ReactBug" },
+
         ],
       },
       // {
@@ -159,4 +180,14 @@ module.exports = {
       // },
     ],
   },
+  plugins: [
+    ['@vuepress/back-to-top'],
+    ['@vuepress/active-header-links'],
+    [markdownHeaderPlugin, {
+      author: '您的默认作者名',
+    }],
+    ['markdown-header-plugin', {
+      author: '您的默认作者名',
+    }],
+  ],
 };

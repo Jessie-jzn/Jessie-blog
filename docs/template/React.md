@@ -533,6 +533,10 @@ public
 
 ## 代码提交校验：`husky`+`lint-staged`+`commitlint`
 
++ Husky：一个 Git 钩子工具，可以在 Git 事件发生时触发自定义的脚本。
++ lint-staged：用于在提交暂存的文件中运行脚本的工具，通常与 Husky 一起使用。
++ commitlint：用于规范化提交消息的工具，它可以强制提交消息遵循一定的格式。
+
 ```js
 npm i husky
 npm i lint-staged
