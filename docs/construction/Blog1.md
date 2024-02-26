@@ -6,7 +6,7 @@ date: "2022-06-10"
 
 一直都是使用 CSDN 写一些博文，最近突发奇想想试用下免费的 Github Pages 搭建一下博客，跟上大家的脚步 👣，VuePress 官网文档写得还算是挺全面的，但是我在进行部署的时候踩了不少坑，记录下来方便大家上手，减少踩坑。
 
-源码：<https://github.com/Jessie-jzn/Jessie-blog>
+源码：<https://github.com/Jessie-jzn/blog-vuepress>
 
 博客地址：<https://jessie-jzn.github.io/Jessie-blog/>
 

@@ -31,12 +31,6 @@ module.exports = {
       },
     ],
     sidebar: [
-      // {
-      //   title: "欢迎学习",
-      //   path: "/",
-      //   collapsable: false, // 不折叠
-      //   children: [{ title: "学前必读", path: "/" }],
-      // },
       {
         title: "博客搭建",
         path: "/construction/Blog1",
@@ -69,6 +63,17 @@ module.exports = {
         children: [
           { title: "闭包", path: "/javascript/Closure" },
           { title: "原型链", path: "/javascript/Prototype" },
+          { title: "Event Loop 机制", path: "/javascript/EventLoop" },
+          // { title: "事件循环机制", path: "/javascript/cycle" },
+          // { title: "事件冒泡和事件捕获", path: "/javascript/Prototype" },
+        ],
+      },
+      {
+        title: "CSS基础",
+        path: "/css/Base",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "基础", path: "/css/Base" },
           // { title: "事件循环机制", path: "/javascript/cycle" },
           // { title: "事件冒泡和事件捕获", path: "/javascript/Prototype" },
         ],
@@ -83,7 +88,7 @@ module.exports = {
             path: "/browser/Navigation",
           },
           { title: "渲染流程：如何渲染资源到显示屏", path: "/browser/Render" },
-          // { title: "Event Loop 机制", path: "/browser/Navigation" },
+          { title: "宏任务与微任务", path: "/browser/Task" },
           // { title: "垃圾回收机制", path: "/browser/Navigation" },
           // { title: "localstorage与cookie ", path: "/browser/Navigation" },
         ],
@@ -124,12 +129,11 @@ module.exports = {
         ],
       },
       {
-        title: "代码题",
-        path: "/code/Debounce",
+        title: "性能优化",
+        path: "/performance/DebounceAndThrottle.md",
         collapsable: false, // 不折叠
         children: [
-          { title: "函数防抖", path: "/code/Debounce" },
-          { title: "函数节流", path: "/code/Throttle" },
+          { title: "函数防抖与节流", path: "/performance/DebounceAndThrottle" },
           { title: "数组去重", path: "/code/Repeat" },
           // { title: "柯里化", path: "/code/Repeat" },
           // { title: "Promise实现", path: "/code/Repeat" },
@@ -146,10 +150,10 @@ module.exports = {
       },
       {
         title: "Next",
-        path: "/next/base",
+        path: "/next/Base",
         collapsable: false, // 不折叠
         children: [
-          { title: "基础", path: "/next/base" },
+          { title: "基础", path: "/next/Base" },
 
         ],
       },
