@@ -154,6 +154,8 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "基础", path: "/next/Base" },
+          { title: "渲染方式", path: "/next/Render" },
+        
 
         ],
       },
