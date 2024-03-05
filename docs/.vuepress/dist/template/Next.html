@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Next.js、WordPress和WPGraphQL查询搭建一个网站 | Jessie的个人技术博客</title>
+    <meta name="generator" content="VuePress 1.9.8">
+    
+    <meta name="description" content="办法总比问题多">
+    
+    <link rel="preload" href="/Jessie-blog/assets/css/0.styles.e017d641.css" as="style"><link rel="preload" href="/Jessie-blog/assets/js/app.077de1ac.js" as="script"><link rel="preload" href="/Jessie-blog/assets/js/3.912c34c2.js" as="script"><link rel="preload" href="/Jessie-blog/assets/js/1.f20a062a.js" as="script"><link rel="preload" href="/Jessie-blog/assets/js/37.77bb2680.js" as="script"><link rel="prefetch" href="/Jessie-blog/assets/js/10.8553222a.js"><link rel="prefetch" href="/Jessie-blog/assets/js/11.d181fa8e.js"><link rel="prefetch" href="/Jessie-blog/assets/js/12.2e876390.js"><link rel="prefetch" href="/Jessie-blog/assets/js/13.412d6de5.js"><link rel="prefetch" href="/Jessie-blog/assets/js/14.0ba1a96f.js"><link rel="prefetch" href="/Jessie-blog/assets/js/15.91bc77d7.js"><link rel="prefetch" href="/Jessie-blog/assets/js/16.8a0d833a.js"><link rel="prefetch" href="/Jessie-blog/assets/js/17.a78e1e8a.js"><link rel="prefetch" href="/Jessie-blog/assets/js/18.6eb17992.js"><link rel="prefetch" href="/Jessie-blog/assets/js/19.39c97f36.js"><link rel="prefetch" href="/Jessie-blog/assets/js/20.78b142e5.js"><link rel="prefetch" href="/Jessie-blog/assets/js/21.8e6a1250.js"><link rel="prefetch" href="/Jessie-blog/assets/js/22.75e345dc.js"><link rel="prefetch" href="/Jessie-blog/assets/js/23.285c2a1f.js"><link rel="prefetch" href="/Jessie-blog/assets/js/24.5dbac6e3.js"><link rel="prefetch" href="/Jessie-blog/assets/js/25.73628e6e.js"><link rel="prefetch" href="/Jessie-blog/assets/js/26.30814fc9.js"><link rel="prefetch" href="/Jessie-blog/assets/js/27.d0d70793.js"><link rel="prefetch" href="/Jessie-blog/assets/js/28.0d28431b.js"><link rel="prefetch" href="/Jessie-blog/assets/js/29.b38d18e9.js"><link rel="prefetch" href="/Jessie-blog/assets/js/30.1e564447.js"><link rel="prefetch" href="/Jessie-blog/assets/js/31.285ada5c.js"><link rel="prefetch" href="/Jessie-blog/assets/js/32.34ca0e7b.js"><link rel="prefetch" href="/Jessie-blog/assets/js/33.10845c39.js"><link rel="prefetch" href="/Jessie-blog/assets/js/34.944d8f9f.js"><link rel="prefetch" href="/Jessie-blog/assets/js/35.bb9bce71.js"><link rel="prefetch" href="/Jessie-blog/assets/js/36.e8333d33.js"><link rel="prefetch" href="/Jessie-blog/assets/js/38.faba0cf5.js"><link rel="prefetch" href="/Jessie-blog/assets/js/4.9136a982.js"><link rel="prefetch" href="/Jessie-blog/assets/js/5.bdf5bec2.js"><link rel="prefetch" href="/Jessie-blog/assets/js/6.3fd0a10d.js"><link rel="prefetch" href="/Jessie-blog/assets/js/7.6ab1a038.js"><link rel="prefetch" href="/Jessie-blog/assets/js/8.b601f399.js"><link rel="prefetch" href="/Jessie-blog/assets/js/9.bbbdb0ae.js">
+    <link rel="stylesheet" href="/Jessie-blog/assets/css/0.styles.e017d641.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Jessie的个人技术博客</h3> <p class="description" data-v-59e6cb88>办法总比问题多</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2024
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Jessie-blog/" class="home-link router-link-active"><!----> <span class="site-name">Jessie的个人技术博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Jessie-blog/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Jessie的博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Jessie-jzn" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/zn740395858?spm=1010.2135.3001.5343" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://juejin.cn/user/2524134425764375" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><!----> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>25</h3> <h6 data-v-1fad0c41>文章</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>0</h3> <h6 data-v-1fad0c41>标签</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/Jessie-blog/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Jessie的博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Jessie-jzn" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/zn740395858?spm=1010.2135.3001.5343" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://juejin.cn/user/2524134425764375" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/Jessie-blog/construction/Blog1" class="sidebar-heading clickable"><span>博客搭建</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Jessie-blog/construction/Blog1.html" class="sidebar-link">Blog 01</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Jessie-blog/template/React" class="sidebar-heading clickable open"><span>脚手架搭建</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Jessie-blog/template/React.html" class="sidebar-link">React+TypeScript+Webpack5</a></li><li><a href="/Jessie-blog/template/Next.html" aria-current="page" class="active sidebar-link">Next.js搭建网站</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Jessie-blog/ECMAScript/Set" class="sidebar-heading clickable"><span>ECMAScript</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Jessie-blog/ECMAScript/Set.html" class="sidebar-link">Set类型</a></li><li><a href="/Jessie-blog/ECMAScript/WeakSet.html" class="sidebar-link">WeakSet类型</a></li><li><a href="/Jessie-blog/ECMAScript/Map.html" class="sidebar-link">Map类型</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Jessie-blog/javascript/Closure" class="sidebar-heading clickable"><span>JS基础</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Jessie-blog/javascript/Closure.html" class="sidebar-link">闭包</a></li><li><a href="/Jessie-blog/javascript/Prototype.html" class="sidebar-link">原型链</a></li><li><a href="/Jessie-blog/javascript/EventLoop.html" class="sidebar-link">Event Loop 机制</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Jessie-blog/css/Base" class="sidebar-heading clickable"><span>CSS基础</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Jessie-blog/css/Base.html" class="sidebar-link">基础</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Jessie-blog/javascript/browser/Navigation" class="sidebar-heading clickable"><span>浏览器基础</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Jessie-blog/browser/Navigation.html" class="sidebar-link">导航流程：从输入URL到页面展示</a></li><li><a href="/Jessie-blog/browser/Render.html" class="sidebar-link">渲染流程：如何渲染资源到显示屏</a></li><li><a href="/Jessie-blog/browser/Task.html" class="sidebar-link">宏任务与微任务</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Jessie-blog/network/CachingComparison" class="sidebar-heading clickable"><span>网络基础</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Jessie-blog/network/CachingComparison.html" class="sidebar-link">Cookie缓存比较</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Jessie-blog/algorithm/Array/BinarySearch" class="sidebar-heading clickable"><span>算法</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/Jessie-blog/algorithm/Array/BinarySearch" class="sidebar-heading clickable open"><span>数组</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Jessie-blog/algorithm/Array/BinarySearch.html" class="sidebar-link">二分查找</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/Jessie-blog/algorithm/Link/BaseLink" class="sidebar-heading clickable"><span>链表</span> <span class="arrow right"></span></a> <!----></section></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Jessie-blog/performance/DebounceAndThrottle.md" class="sidebar-heading clickable"><span>性能优化</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Jessie-blog/performance/DebounceAndThrottle.html" class="sidebar-link">函数防抖与节流</a></li><li><a href="/Jessie-blog/code/Repeat.html" class="sidebar-link">数组去重</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Jessie-blog/react/ReactFiber" class="sidebar-heading clickable"><span>React</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Jessie-blog/react/ReactFiber.html" class="sidebar-link">React Fiber</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Jessie-blog/next/Base" class="sidebar-heading clickable"><span>Next</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Jessie-blog/next/Base.html" class="sidebar-link">基础</a></li><li><a href="/Jessie-blog/next/Render.html" class="sidebar-link">渲染方式</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Jessie-blog/others/VueBug" class="sidebar-heading clickable"><span>其他</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Jessie-blog/others/VueBug.html" class="sidebar-link">Vue常见错误解决</a></li><li><a href="/Jessie-blog/others/ReactBug.html" class="sidebar-link">React常见错误解决</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Next.js、WordPress和WPGraphQL查询搭建一个网站</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2024
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">Next.js、WordPress和WPGraphQL查询搭建一个网站</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>Jessie</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>2024/3/4</span></i> <!----> <!----></div></div> <div class="theme-reco-content content__default"><p>最近闲在家里没事干，就想着自己搭建一个网站，加上Next.js最近挺火，就结合了WordPress现成的内容管理系统，建立一个关于旅游攻略的网站。</p> <p>这边就不具体展开讲解WordPress如何创建文件创建页面等操作，大家具体可看官方文档，操作还算是简单。</p> <p>项目github地址：https://github.com/Jessie-jzn/Next-WordPress</p> <h2 id="搭建next-js环境"><a href="#搭建next-js环境" class="header-anchor">#</a> 搭建Next.js环境</h2> <ol><li>使用 create-next-app创建新的 Next.js 应用程序，它会自动为你设置所有内容</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code>npx create-next-app wordpress-next
+</code></pre></div><p>安装完成后,进入我们刚才创建的文件夹<code>wordpress-next</code>并运行</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> wordpress-next
+<span class="token function">npm</span> run dev
+</code></pre></div><p>运行 npm run dev 或 yarn dev 来启动开发服务器，访问地址为 http://localhost:3000。
+编辑 pages/index.js 文件并在浏览器中查看更新。</p> <p><strong>目录大概如下</strong></p> <p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5436804f57844f5e8abac1981d54eac1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=528&amp;h=1266&amp;s=119228&amp;e=png&amp;b=262627" alt="image.png"></p> <h2 id="将wordpress-api添加到next-js中"><a href="#将wordpress-api添加到next-js中" class="header-anchor">#</a> 将WordPress API添加到Next.js中</h2> <p>在根目录下创建一个文件<code>.env</code>文件,将你的WordPress api地址放进去</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// .env</span>
+<span class="token constant">WORDPRESS_API_URL</span><span class="token operator">=</span><span class="token string">&quot;你的WordPress api地址&quot;</span>
+
+# Only required <span class="token keyword">if</span> you want to enable preview mode
+<span class="token constant">WORDPRESS_AUTH_REFRESH_TOKEN</span><span class="token operator">=</span><span class="token string">&quot;revalidate&quot;</span>
+<span class="token constant">WORDPRESS_PREVIEW_SECRET</span><span class="token operator">=</span><span class="token string">&quot;preview&quot;</span>
+</code></pre></div><p><strong>如何获取WordPress api地址？</strong></p> <p>如下图所示，进入WordPress管理后台，点击GraphQL中的setting，在Endpoint只可以看到一个url，那就是api地址
+<img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1b7b7540b39497b9ec8dba59cf83a1b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3378&amp;h=1560&amp;s=508814&amp;e=png&amp;b=f5f6f6" alt="image.png"></p> <h2 id="next-js项目与wordpress连接"><a href="#next-js项目与wordpress连接" class="header-anchor">#</a> Next.js项目与WordPress连接</h2> <ol><li>在项目的根目录下创建<code>lib</code>文件夹，创建<code>api.ts</code>文件</li> <li>在<code>api.ts</code>文件中配置<code>fetchAPI</code>函数</li></ol> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// api.ts</span>
+<span class="token keyword">const</span> <span class="token constant">API_URL</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">WORDPRESS_API_URL</span>
+ 
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fetchAPI</span><span class="token punctuation">(</span>query<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span> variables<span class="token operator">:</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">any</span><span class="token operator">&gt;</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> headers<span class="token operator">:</span> HeadersInit <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string-property property">'Content-Type'</span><span class="token operator">:</span> <span class="token string">'application/json'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">WORDPRESS_AUTH_REFRESH_TOKEN</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      headers<span class="token punctuation">[</span><span class="token string">'Authorization'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Bearer </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">WORDPRESS_AUTH_REFRESH_TOKEN</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token constant">API_URL</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      headers<span class="token punctuation">,</span>
+      method<span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+      body<span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        query<span class="token punctuation">,</span>
+        variables<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> json<span class="token operator">:</span> ApiResponse <span class="token operator">=</span> <span class="token keyword">await</span> res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>json<span class="token punctuation">.</span>errors<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>errors<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'获取 API 数据失败'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> json<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'获取 API 数据时出错：'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'获取 API 数据失败'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="在wpgraphql中创建查询"><a href="#在wpgraphql中创建查询" class="header-anchor">#</a> 在WPGraphQL中创建查询</h2> <p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d7f7ad0a143a469d9df1cc0b8489a3fc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2324&amp;h=1652&amp;s=324344&amp;e=png&amp;b=fdfdfd" alt="image.png">
+点击运行按钮查看获取的数据是否是我们所要的</p> <h2 id="获取所有文章列表"><a href="#获取所有文章列表" class="header-anchor">#</a> 获取所有文章列表</h2> <p>在<code>api.ts</code>文件中创建getAllPosts函数，请求WPGraphQL接口获取数据</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// api.ts</span>
+<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getAllPosts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetchAPI</span><span class="token punctuation">(</span>
+    <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">query getAllPostQuery {
+        posts {
+          edges {
+            node {
+              title
+              excerpt
+              slug
+              date
+              id
+              content
+              categories {
+                edges {
+                  node {
+                    name
+                  }
+                }
+              }
+              featuredImage {
+                node {
+                  sourceUrl
+                  title
+                }
+              }
+              uri
+            }
+          }
+        }
+      }
+    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      variables<span class="token operator">:</span> <span class="token punctuation">{</span>
+        onlyEnabled<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        preview<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> data<span class="token operator">?.</span>posts<span class="token operator">?.</span>edges<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在页面中创建getStaticProps函数拿到静态数据，注入到页面的 props 中</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// pages/index.tsx</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token literal-property property">getStaticProps</span><span class="token operator">:</span> <span class="token function-variable function">GetStaticProps</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> edges <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getAllPosts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span> edges <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">revalidate</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre></div><p>在页面的 props 拿到数据，正常使用</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Layout <span class="token keyword">from</span> <span class="token string">'../components/Layout/index'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> GetStaticProps <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'next'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> getAllPosts <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../lib/api'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> PostCard <span class="token keyword">from</span> <span class="token string">'../components/post-card'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">WorkProps</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">edges</span><span class="token operator">:</span> any<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 根据实际情况定义 edges 的类型</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">Index</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> edges <span class="token punctuation">}</span><span class="token operator">:</span> WorkProps</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>Layout<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;relative px-8&quot;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;max-w-screen-xl mx-auto my-12 md:mt-18 lg:mt-20&quot;</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>h1 className<span class="token operator">=</span><span class="token string">&quot;font-display text-secondary-500 text-4xl font-black tracking-wide&quot;</span><span class="token operator">&gt;</span>
+            <span class="token punctuation">{</span><span class="token comment">/* {id} */</span><span class="token punctuation">}</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;relative px-8 mb-12&quot;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;max-w-screen-xl mx-auto&quot;</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;grid sm:gap-8 sm:grid-cols-2 lg:grid-cols-3&quot;</span><span class="token operator">&gt;</span>
+            <span class="token punctuation">{</span>edges<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">edgeItem<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+              <span class="token operator">&lt;</span>PostCard key<span class="token operator">=</span><span class="token punctuation">{</span>index<span class="token punctuation">}</span> edgeItem<span class="token operator">=</span><span class="token punctuation">{</span>edgeItem<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+            <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>Layout<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> Index<span class="token punctuation">;</span>
+
+</code></pre></div><p>此刻页面如下：</p> <p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f84bf04f51f64d7b90bc8e022e72f284~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2572&amp;h=1856&amp;s=2091061&amp;e=png&amp;b=f5f1f0" alt="image.png"></p> <h2 id="获取单篇文章详细信息"><a href="#获取单篇文章详细信息" class="header-anchor">#</a> 获取单篇文章详细信息</h2> <ol><li>在<code>api</code>文件中写获取单篇文章数据的<code>getSinglePost</code>函数</li></ol> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// api.ts</span>
+<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getSinglePost</span><span class="token punctuation">(</span>id<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> preview<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetchAPI</span><span class="token punctuation">(</span>
+    <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">query getSinglePost($id: ID!) {
+      post(id: $id) {           
+        title
+        categories {
+          edges {
+            node {
+              name
+            }
+          }
+        }
+        excerpt
+        content
+        slug
+        id
+        author {
+          node {
+            name
+            firstName
+            lastName
+          }
+        }
+      }
+    }
+  </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      id<span class="token punctuation">,</span>
+      variables<span class="token operator">:</span> <span class="token punctuation">{</span>
+        onlyEnabled<span class="token operator">:</span> <span class="token operator">!</span>preview<span class="token punctuation">,</span>
+        preview<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> data<span class="token operator">?.</span>post<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="2"><li>在需要展示数据的<code>pages/posts/[id].tsx</code>中写<code>getStaticProps</code>函数，这里的文件目录是：</li></ol> <p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cbf2fd8195654b5997fa35c9974bd709~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=540&amp;h=378&amp;s=33336&amp;e=png&amp;b=282829" alt="image.png"></p> <p>完整的代码如下：</p> <div class="language-tsx extra-class"><pre class="language-tsx"><code><span class="token comment">// pages/posts/[id].tsx</span>
+<span class="token keyword">import</span> Link <span class="token keyword">from</span> <span class="token string">'next/link'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Layout <span class="token keyword">from</span> <span class="token string">'../../components/Layout/index'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> GetStaticProps<span class="token punctuation">,</span> GetStaticPaths <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'next'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> getSinglePost<span class="token punctuation">,</span> getAllPostsWithId <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../lib/api'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Image <span class="token keyword">from</span> <span class="token string">'next/image'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> formatTimestampToDate <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../lib/util'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">PostProps</span> <span class="token punctuation">{</span>
+  post<span class="token operator">:</span> <span class="token punctuation">{</span>
+    title<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    date<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    content<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    featuredImage<span class="token operator">:</span> <span class="token punctuation">{</span>
+      node<span class="token operator">:</span> <span class="token punctuation">{</span>
+        sourceUrl<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Post</span><span class="token punctuation">(</span><span class="token punctuation">{</span> post <span class="token punctuation">}</span><span class="token operator">:</span> PostProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Layout</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>relative px-8 mt-6<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>max-w-screen-xl mx-auto<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>h-64 md:h-96  lg:h-[480px] relative overflow-hidden rounded-lg<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Image</span></span>
+              <span class="token attr-name">src</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>post<span class="token punctuation">.</span>featuredImage<span class="token operator">?.</span>node<span class="token operator">?.</span>sourceUrl<span class="token punctuation">}</span></span>
+              <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>object-cover object-center rounded-t-lg w-full<span class="token punctuation">&quot;</span></span>
+              <span class="token attr-name">layout</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>fill<span class="token punctuation">&quot;</span></span>
+              <span class="token attr-name">alt</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>post<span class="token punctuation">.</span>featuredImage<span class="token operator">?.</span>node<span class="token operator">?.</span>sourceUrl<span class="token punctuation">}</span></span>
+            <span class="token punctuation">/&gt;</span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>max-w-3xl mx-auto mt-4<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>border-b-2 border-primary-500 w-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>font-display text-4xl font-bold my-6 text-secondary-500<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+              </span><span class="token punctuation">{</span>post<span class="token punctuation">.</span>title<span class="token punctuation">}</span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>mt-4 uppercase text-gray-600 italic font-semibold text-xs<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+              </span><span class="token punctuation">{</span><span class="token function">formatTimestampToDate</span><span class="token punctuation">(</span>post<span class="token punctuation">.</span>date<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span>
+              <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>prose max-w-full mb-20<span class="token punctuation">&quot;</span></span>
+              <span class="token attr-name">dangerouslySetInnerHTML</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> __html<span class="token operator">:</span> post<span class="token operator">?.</span>content <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
+            <span class="token punctuation">/&gt;</span></span><span class="token plain-text">
+          </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Layout</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> getStaticProps<span class="token operator">:</span> <span class="token function-variable function">GetStaticProps</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  params<span class="token punctuation">,</span>
+  preview <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> post <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getSinglePost</span><span class="token punctuation">(</span>params<span class="token operator">?.</span>id <span class="token keyword">as</span> <span class="token builtin">string</span><span class="token punctuation">,</span> preview<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    props<span class="token operator">:</span> <span class="token punctuation">{</span>
+      post<span class="token operator">:</span> post<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    revalidate<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> getStaticPaths<span class="token operator">:</span> <span class="token function-variable function">GetStaticPaths</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> allPostsData <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getAllPostsWithId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 使用文章数据来生成路径</span>
+    <span class="token comment">// @ts-ignore</span>
+    <span class="token keyword">const</span> paths <span class="token operator">=</span> allPostsData<span class="token punctuation">.</span>edges<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">{</span> node <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/posts/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>node<span class="token punctuation">.</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      paths<span class="token operator">:</span> paths<span class="token punctuation">,</span>
+      fallback<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'获取静态路径时出错：'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      paths<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      fallback<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/Jessie-blog/template/React.html" class="prev">
+          React+TypeScript+Webpack5
+        </a></span> <span class="next"><a href="/Jessie-blog/ECMAScript/Set.html">
+          Set类型
+        </a></span></p></div> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/Jessie-blog/template/Next.html#搭建next-js环境" class="sidebar-link reco-side-搭建next-js环境" data-v-b57cc07c>搭建Next.js环境</a></li><li class="level-2" data-v-b57cc07c><a href="/Jessie-blog/template/Next.html#将wordpress-api添加到next-js中" class="sidebar-link reco-side-将wordpress-api添加到next-js中" data-v-b57cc07c>将WordPress API添加到Next.js中</a></li><li class="level-2" data-v-b57cc07c><a href="/Jessie-blog/template/Next.html#next-js项目与wordpress连接" class="sidebar-link reco-side-next-js项目与wordpress连接" data-v-b57cc07c>Next.js项目与WordPress连接</a></li><li class="level-2" data-v-b57cc07c><a href="/Jessie-blog/template/Next.html#在wpgraphql中创建查询" class="sidebar-link reco-side-在wpgraphql中创建查询" data-v-b57cc07c>在WPGraphQL中创建查询</a></li><li class="level-2" data-v-b57cc07c><a href="/Jessie-blog/template/Next.html#获取所有文章列表" class="sidebar-link reco-side-获取所有文章列表" data-v-b57cc07c>获取所有文章列表</a></li><li class="level-2" data-v-b57cc07c><a href="/Jessie-blog/template/Next.html#获取单篇文章详细信息" class="sidebar-link reco-side-获取单篇文章详细信息" data-v-b57cc07c>获取单篇文章详细信息</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/Jessie-blog/assets/js/app.077de1ac.js" defer></script><script src="/Jessie-blog/assets/js/3.912c34c2.js" defer></script><script src="/Jessie-blog/assets/js/1.f20a062a.js" defer></script><script src="/Jessie-blog/assets/js/37.77bb2680.js" defer></script>
+  </body>
+</html>

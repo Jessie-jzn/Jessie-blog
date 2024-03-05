@@ -44,6 +44,7 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "React+TypeScript+Webpack5", path: "/template/React" },
+          { title: "Next.js搭建网站", path: "/template/Next" },
         ],
       },
       {
@@ -155,8 +156,6 @@ module.exports = {
         children: [
           { title: "基础", path: "/next/Base" },
           { title: "渲染方式", path: "/next/Render" },
-        
-
         ],
       },
       {
