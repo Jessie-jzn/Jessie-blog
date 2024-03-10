@@ -163,6 +163,7 @@ module.exports = {
         path: "/others/VueBug",
         collapsable: false, // 不折叠
         children: [
+          { title: "微前端", path: "/others/MicroFrontends" },
           { title: "Vue常见错误解决", path: "/others/VueBug" },
           { title: "React常见错误解决", path: "/others/ReactBug" },
 
