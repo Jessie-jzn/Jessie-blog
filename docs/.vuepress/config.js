@@ -89,7 +89,7 @@ module.exports = {
             path: "/browser/Navigation",
           },
           { title: "渲染流程：如何渲染资源到显示屏", path: "/browser/Render" },
-          { title: "宏任务与微任务", path: "/browser/Task" },
+          { title: "浏览器的事件循环", path: "/browser/Task" },
           // { title: "垃圾回收机制", path: "/browser/Navigation" },
           // { title: "localstorage与cookie ", path: "/browser/Navigation" },
         ],
